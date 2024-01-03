@@ -26,7 +26,7 @@ public class PortfolioTesterAnnotated {
 	
 	@Test
 	public void getStockvalue() {
-		List<Stock> stocks = new ArrayList<>();
+		List<Stock> stocks = new ArrayList<Stock>();
 		
 		Stock tata = new Stock("1", "Tata", 10);
 		Stock reliance = new Stock("2", "Reliance", 50);
