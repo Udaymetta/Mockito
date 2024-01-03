@@ -1,5 +1,6 @@
 package com.qvc.mockito;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -12,9 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import junit.framework.Assert;
-
-@SuppressWarnings("deprecation")
 @RunWith(MockitoJUnitRunner.class)
 public class PortfolioTesterAnnotated {
 
@@ -24,6 +22,7 @@ public class PortfolioTesterAnnotated {
 	@Mock
 	StockService stockService;
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void getStockvalue() {
 		List<Stock> stocks = new ArrayList<Stock>();
@@ -39,7 +38,7 @@ public class PortfolioTesterAnnotated {
 		portfolio.setStocks(stocks);
 		
 		double value = portfolio.getMarketValue();
-		Assert.assertEquals(value, 51000.0);
+		assertEquals(value, 51000.0);
 		verify(stockService).getPrice(reliance);
 
 	}
