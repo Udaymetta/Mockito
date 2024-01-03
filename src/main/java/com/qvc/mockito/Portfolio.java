@@ -1,0 +1,31 @@
+package com.qvc.mockito;
+
+import java.util.List;
+
+public class Portfolio {
+
+	private StockService stockService;
+	private List<Stock> stocks;
+	
+	public StockService getStockService() {
+		return stockService;
+	}
+	public void setStockService(StockService stockService) {
+		this.stockService = stockService;
+	}
+	public List<Stock> getStocks() {
+		return stocks;
+	}
+	public void setStocks(List<Stock> stocks) {
+		this.stocks = stocks;
+	}
+	
+	public double getMarketValue() {
+		double value = 0.0;
+		for(Stock stock : stocks) {
+			value += stockService.getPrice(stock) * stock.getQty();
+		}
+		return value;
+	}
+	
+}
